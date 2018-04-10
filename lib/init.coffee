@@ -46,8 +46,8 @@ module.exports = new class PullRequests
     @subscriptions.destroy()
 
   consumeLinter: (registry) ->
-    atom.packages.activate('linter').then =>
-      registry = atom.packages.getLoadedPackage('linter').mainModule.provideIndie()
+    atom.packages.activate('atom-ide-diagnostics').then =>
+      registry = atom.packages.getLoadedPackage('atom-ide-diagnostics').mainModule.provideIndie()
 
       linter = registry({name: 'Pull Request'})
       @pullRequestLinter.setLinter(linter)
